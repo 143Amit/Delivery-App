@@ -8,7 +8,7 @@ import {
   BackHandler,
 } from 'react-native';
 import React from 'react';
-import {RED, WHITE} from '../../constants/Color';
+import {BLACK, RED, WHITE} from '../../constants/Color';
 import {HEIGHT, MyStatusBar, WIDTH} from '../../constants/Config';
 import {HeaderView} from '../../components/HeaderView';
 import {Cart, Delicious, Menu, Search} from '../../constants/Imagepath';
@@ -145,9 +145,10 @@ const HomePage = () => {
               width: WIDTH * 0.74,
               fontFamily: 'Roboto-Regular',
               fontSize: 18,
-              color: 'gray',
+              color: BLACK,
             }}
             placeholder="Search"
+            placeholderTextColor={'gray'}
           />
         </View>
       </Pressable>

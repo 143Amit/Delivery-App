@@ -63,7 +63,12 @@ const Input = ({
         // backgroundColor:'pink',
         alignSelf:'center',
         borderBottomColor:BLACK,
-        borderBottomWidth:0.5
+        borderBottomWidth:0.5,
+        color:BLACK,
+        fontFamily:'Roboto-Medium',
+        fontSize:18,
+        
+               
       }}
       placeholder={placehoolder}
       placeholderTextColor={'#919191'}
