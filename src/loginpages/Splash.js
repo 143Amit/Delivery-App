@@ -15,11 +15,11 @@ import {CustomBtn} from '../components/CustomBtn';
 import {WHITE} from '../constants/Color';
 
 const Splash = ({navigation}) => {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate('LoginProcess');
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigation.navigate('LoginProcess');
+  //   }, 3000);
+  // }, []);
 
   return (
     <View
@@ -102,26 +102,30 @@ const Splash = ({navigation}) => {
         />
       </View>
       {/* </LinearGradient> */}
-      <View
+      {/* <View
         style={{
           height: HEIGHT * 0.1,
           width: WIDTH * 0.95,
-          // backgroundColor:'yellow',
+          backgroundColor:'yellow',
           alignSelf: 'center',
-          // justifyContent:'center',
+          // justifyContent:'flex-start',
           alignItems: 'center',
-        }}>
-        <CustomBtn
+        }}> */}
+         
+             <CustomBtn
           text="Get Started"
           width={WIDTH * 0.85}
           backgroundColor={WHITE}
           borderColor={WHITE}
           text_color="#FF460A"
+          bottom={50}
           onTouch={() => {
             navigation.navigate('LoginProcess');
           }}
         />
-      </View>
+        
+       
+      {/* </View> */}
     </View>
   );
 };

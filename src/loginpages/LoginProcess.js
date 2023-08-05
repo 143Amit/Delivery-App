@@ -46,66 +46,83 @@ const LoginProcess = () => {
   });
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
-      <ScrollView
+    <ScrollView
+      style={{
+        height: HEIGHT * 0.4,
+        backgroundColor: '#F2F2F2',
+        // backgroundColor: WHITE,
+      }}>
+      <MyStatusBar backgroundColor={'black'} barStyle={'light-content'} />
+
+      <View
         style={{
-          height: HEIGHT * 0.4,
+          height: HEIGHT * 0.35,
+          width: WIDTH * 0.99,
           backgroundColor: WHITE,
+          // backgroundColor:'yellow',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}>
-        <MyStatusBar backgroundColor={'black'} barStyle={'light-content'} />
-
-        <View
+        <Image
           style={{
-            height: HEIGHT * 0.4,
-            width: WIDTH * 1,
-            // backgroundColor:'yellow',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Image
-            style={{
-              height: 180,
-              width: 180,
-            }}
-            source={logo}
-          />
-        </View>
+            height: 180,
+            width: 180,
+          }}
+          source={logo}
+        />
+      </View>
 
-        <View
-          style={{
-            height: HEIGHT * 0.5,
-            width: WIDTH * 0.9,
-            alignSelf: 'center',
-            backgroundColor: WHITE,
+      <View
+        style={{
+          height: HEIGHT * 0.5,
+          width: WIDTH,
+          alignSelf: 'center',
+          backgroundColor: '#F2F2F2',
+        }}>
+        <Tab.Navigator
+          initialRouteName="Login"
+          // tabBarPressColor='pink'
+          screenOptions={{
+            // tabBarGap: 0,
+            // tabBarPressColor: "transparent" ,
+            tabBarPressColor: WHITE,
+            tabBarPressOpacity:0,
+            tabBarLabelStyle: {fontSize: 16, fontFamily: 'Roboto-Bold'},
+            tabBarItemStyle: {
+              // width:120,
+              // marginLeft:WIDTH * 0.11,
+              // backgroundColor:'pink'
+            },
+            tabBarStyle: {
+              backgroundColor: WHITE,
+              // backgroundColor: 'pink',
+              elevation: 0,
+              borderBottomLeftRadius: 30,
+              borderBottomRightRadius: 30,
+              width: WIDTH * 0.99,
+              alignSelf:'center'
+              // alignItems:'center'
+              // width:WIDTH * 0.8,
+              // alignSelf:'center',
+              // marginLeft:10
+            },
+            // activeTintColor: RED,
+            // tabBarInactiveTintColor: '#8E8E8E',
+            tabBarIndicatorStyle: {
+              backgroundColor: RED,
+              marginLeft: WIDTH * 0.1,
+              width: WIDTH * 0.3,
+            },
           }}>
-          <Tab.Navigator
-            initialRouteName="Login"
-            screenOptions={{
-              tabBarLabelStyle: {fontSize: 16, fontFamily: 'Roboto-Bold'},
-              // tabBarItemStyle: { width:100 },
-              tabBarStyle: {backgroundColor: WHITE, elevation: 0},
-              tabBarPressColor: WHITE,
-              activeTintColor: RED,
-              tabBarInactiveTintColor: '#8E8E8E',
-              tabBarIndicatorStyle: {backgroundColor: RED},
-            }}>
-            <Tab.Screen name="Login" component={Login} />
-            <Tab.Screen name="Sign-Up" component={SignUp} />
-          </Tab.Navigator>
-        </View>
-
-        {/* <Text>Login</Text> */}
-      </ScrollView>
-    </KeyboardAvoidingView>
+          <Tab.Screen name="Login" component={Login} />
+          <Tab.Screen name="Sign-Up" component={SignUp} />
+        </Tab.Navigator>
+      </View>
+    </ScrollView>
+ 
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+
 
 export default LoginProcess;

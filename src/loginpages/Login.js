@@ -29,7 +29,8 @@ const Login = ({navigation}) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: WHITE,
+        backgroundColor: '#F2F2F2',
+        // backgroundColor: WHITE,
       }}>
       <Input
         label="Email address"
@@ -42,7 +43,7 @@ const Login = ({navigation}) => {
       />
       <Input
         label="Password"
-        placehoolder="Enter Email address"
+        placehoolder="Enter Password"
         marginTop={HEIGHT * 0.02}
         type="password"
         inputdata={password}

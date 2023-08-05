@@ -13,7 +13,8 @@ export const CustomBtn = ({
     height = 60,
     borderColor = WHITE,
     opacity,
-    text_color = BLACK
+    text_color = BLACK,
+    bottom,
     
 }) => {
     return (
@@ -26,8 +27,9 @@ export const CustomBtn = ({
             borderColor: borderColor,
             elevation:5,
             opacity:opacity,
-            // bottom:0,
-            // position:'absolute'
+            bottom:bottom,
+            alignSelf:'center',
+            position:'absolute'
         }}
             onPress={onTouch}
         >

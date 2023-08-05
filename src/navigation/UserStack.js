@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, Platform} from 'react-native';
 import React from 'react';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -9,17 +9,32 @@ import WishListStack from './WishListStack';
 import ProfileStack from './ProfileStack';
 import HistoryStack from './HistoryStack';
 import {Heart, History, Home, User} from '../constants/Imagepath';
-import {BLACK, RED} from '../constants/Color';
+import {BLACK, RED, WHITE} from '../constants/Color';
 
 const Tab = createBottomTabNavigator();
 
-const UserStack = ({navigation}) => {
+const UserStack = () => {
   return (
     <Tab.Navigator
       initialRouteName="HomeStack"
+      backBehavior="history"
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarShowLabel: false,
+        tabBarStyle: {
+          height: HEIGHT * 0.07,
+          width: WIDTH,
+          backgroundColor: '#F2F2F2',
+          elevation:0,
+          // backgroundColor: WHITE,
+          display: (route.name == 'HomeStack'
+          || route.name == 'WishListStack'
+          || route.name == ''
+          ||  route.name == 'ProfileStack') ? 'flex' : 'none'
+        },
+        tabBarIconStyle: {
+          position: Platform.OS == 'ios' ? 'absolute' : 'relative',
+        },
         tabBarIcon: ({focused}) => {
           let icon;
           if (route.name === 'HomeStack') {
@@ -75,62 +90,10 @@ const UserStack = ({navigation}) => {
           return icon;
         },
       })}>
-      <Tab.Screen
-        name="HomeStack"
-        component={HomeStack}
-        options={({route}) => ({
-          tabBarStyle: {
-            height: HEIGHT * 0.1,
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
-            elevation: 15,
-            position: 'absolute',
-            // display:
-            //   (getFocusedRouteNameFromRoute(route) ?? 'HomePage') != 'HomePage'
-            //     ? 'none'
-            //     : 'flex',
-          },
-        })}
-      />
-      <Tab.Screen
-        name="WishListStack"
-        component={WishListStack}
-        options={({route}) => ({
-          tabBarStyle: {
-            height: HEIGHT * 0.1,
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
-            elevation: 15,
-            position: 'absolute',
-          },
-        })}
-      />
-      <Tab.Screen
-        name="ProfileStack"
-        component={ProfileStack}
-        options={({route}) => ({
-          tabBarStyle: {
-            height: HEIGHT * 0.1,
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
-            elevation: 15,
-            position: 'absolute',
-          },
-        })}
-      />
-      <Tab.Screen
-        name="HistoryStack"
-        component={HistoryStack}
-        options={({route}) => ({
-          tabBarStyle: {
-            height: HEIGHT * 0.1,
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
-            elevation: 15,
-            position: 'absolute',
-          },
-        })}
-      />
+      <Tab.Screen name="HomeStack" component={HomeStack} />
+      <Tab.Screen name="WishListStack" component={WishListStack} />
+      <Tab.Screen name="ProfileStack" component={ProfileStack} />
+      <Tab.Screen name="HistoryStack" component={HistoryStack} />
     </Tab.Navigator>
   );
 };

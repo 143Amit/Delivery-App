@@ -6,7 +6,10 @@ const SignUp = () => {
   return (
     <View style={{
       flex:1,
-      backgroundColor:WHITE,
+      // backgroundColor:WHITE,
+      // backgroundColor:'pink',
+      backgroundColor: '#F2F2F2',
+
       justifyContent:'center',
       alignItems:'center'
     }}>

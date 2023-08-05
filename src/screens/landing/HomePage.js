@@ -54,12 +54,15 @@ const HomePage = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: WHITE,
+        // backgroundColor: WHITE,
+        backgroundColor:'#F2F2F2',
+
       }}>
       <MyStatusBar backgroundColor={'black'} barStyle={'light-content'} />
 
+      {/* start header */}
       <HeaderView
-        header_background_color={WHITE}
+        header_background_color={'#F2F2F2'}
         temp="Quick Delivery"
         left_icon_img={Menu}
         left_icon_height={20}
@@ -82,7 +85,9 @@ const HomePage = () => {
         text_fontSize={18}
         text_fontFamily="Roboto-Bold"
       />
+      {/* end header */}
 
+      {/* start delicious food for you */}
       <View
         style={{
           height: HEIGHT * 0.15,
@@ -99,19 +104,22 @@ const HomePage = () => {
           }}
         />
       </View>
+      {/* end delicious food for you */}
 
+        {/* start search */}
       <Pressable
         style={{
           height: HEIGHT * 0.06,
           width: WIDTH * 0.9,
           alignSelf: 'center',
           // backgroundColor:'green',
-          borderRadius: 15,
+          borderRadius: 20,
           flexDirection: 'row',
-          borderWidth: 2,
-          borderColor: 'gray',
+          // borderWidth: 2,
+          // borderColor: 'gray',
           // justifyContent:'center'
           alignItems: 'center',
+          backgroundColor:'#EFEEEE',
         }}>
         <View
           style={{
@@ -139,7 +147,14 @@ const HomePage = () => {
             justifyContent: 'center',
             // alignItems:'center'
           }}>
-          <TextInput
+            <Text style={{
+              color:'gray',
+              fontFamily:'Roboto-Bold',
+              fontSize:18
+            }}>
+              Search
+            </Text>
+          {/* <TextInput
             style={{
               height: HEIGHT * 0.06,
               width: WIDTH * 0.74,
@@ -148,26 +163,30 @@ const HomePage = () => {
               color: BLACK,
             }}
             placeholder="Search"
-            placeholderTextColor={'gray'}
-          />
+            placeholderTextColor={'#787777'}
+            placeholderFontFamily="Roboto-Bold"
+          /> */}
         </View>
       </Pressable>
-
+      {/* end search */}
+      
       <View
         style={{
           height: HEIGHT,
+          // width: WIDTH ,
           width: WIDTH * 0.95,
           alignSelf: 'center',
-          backgroundColor: WHITE,
+          // backgroundColor: WHITE,
+          backgroundColor:'#F2F2F2',
         }}>
         <Tab.Navigator
-          initialRouteName="Login"
+          initialRouteName="Food"
           screenOptions={{
             tabBarScrollEnabled: true,
             tabBarLabelStyle: {fontSize: 16, fontFamily: 'Roboto-Bold'},
             tabBarActiveTintColor: RED,
             tabBarItemStyle: {width: 100},
-            tabBarStyle: {backgroundColor: WHITE, elevation: 0, width: WIDTH},
+            tabBarStyle: {backgroundColor: '#F2F2F2', elevation: 0, width: WIDTH,},
             tabBarPressColor: WHITE,
             tabBarInactiveTintColor: '#8E8E8E',
             tabBarIndicatorStyle: {backgroundColor: RED},
